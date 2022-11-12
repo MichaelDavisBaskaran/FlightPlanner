@@ -20,7 +20,6 @@ import { FirstComponent } from './first/first.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatSliderModule,
     MatToolbarModule,
     MatIconModule,
     MatMenuModule
