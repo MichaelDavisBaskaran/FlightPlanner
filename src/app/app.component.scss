@@ -55,6 +55,21 @@
     flex: 1 1 auto;
   }
 
+.filter-menu-container {
+  height: 100%;
+  background-color: white;
+}
+
+.filter-menu-sidenav {
+  padding: 10px;
+}
+
+.filter-button {
+  position: absolute;
+  right: 10px;
+  margin-top: 10px;
+}
+
 // .toolbar #twitter-logo:hover,
 // .toolbar #youtube-logo:hover {
 // opacity: 0.8;

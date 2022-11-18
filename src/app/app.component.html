@@ -189,4 +189,49 @@
   </mat-menu>
 </mat-toolbar>
 
+<mat-sidenav-container class="filter-menu-container">
+  <mat-sidenav #filterMenu class="filter-menu-sidenav" position="end">
+    <p>Filter Menu</p>
+    <p>
+      Airline <br>
+      <input type="checkbox">Air Canada
+      <input type="checkbox">WestJet
+      <input type="checkbox">Sunwing
+    </p>
+    <p>
+      Price Range <br>
+      Minimum <input type="text" placeholder="$0.00"><br>
+      Maximum <input type="text" placeholder="$0.00">
+    </p>
+    <p>
+      Time Range <br>
+      From <input type="time"> to <input type="time">
+    </p>
+    <p>
+      Class <br>
+      <input type="checkbox">Economy
+      <input type="checkbox">Business
+      <input type="checkbox">First Class
+    </p>
+    <p>
+      Number of Connecting Flights <br>
+      <input type="checkbox">0 (direct flight)
+      <input type="checkbox">1
+      <input type="checkbox">2
+      <input type="checkbox">3+
+    </p>
+    <p>
+      Round-trip<input type="checkbox"> or one-way <input type="checkbox">?
+    </p>
+    <button>Apply Filters</button>
+    <button>Clear Filters</button>
+    <button (click)="filterMenu.close()">Close Filters</button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="filter-button">
+      <button (click)="filterMenu.toggle()">Filter</button>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
 <router-outlet></router-outlet>
