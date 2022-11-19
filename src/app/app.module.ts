@@ -10,11 +10,14 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { MatMenuModule} from '@angular/material/menu';
 import { FirstComponent } from './first/first.component';
+import { FavouritesComponent } from './favourites/favourites.component';
+import { MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FirstComponent
+    FirstComponent,
+    FavouritesComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,8 @@ import { FirstComponent } from './first/first.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

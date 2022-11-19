@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FavouritesComponent } from './favourites/favourites.component';
 import { FirstComponent } from './first/first.component';
 
 const routes: Routes = [
-  { path: 'first-component', component: FirstComponent },
+  { path: 'favourites', component: FavouritesComponent },
 ];
 
 @NgModule({
