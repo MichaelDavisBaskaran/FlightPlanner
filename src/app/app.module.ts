@@ -13,13 +13,15 @@ import { FirstComponent } from './first/first.component';
 import { FavouritesComponent } from './favourites/favourites.component';
 import { MatGridListModule} from '@angular/material/grid-list';
 import { MainpageComponent } from './mainpage/mainpage.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FirstComponent,
     FavouritesComponent
-    MainpageComponent
+    MainpageComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
