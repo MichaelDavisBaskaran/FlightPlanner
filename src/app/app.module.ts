@@ -12,12 +12,14 @@ import { MatMenuModule} from '@angular/material/menu';
 import { FirstComponent } from './first/first.component';
 import { FavouritesComponent } from './favourites/favourites.component';
 import { MatGridListModule} from '@angular/material/grid-list';
+import { MainpageComponent } from './mainpage/mainpage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FirstComponent,
     FavouritesComponent
+    MainpageComponent
   ],
   imports: [
     BrowserModule,
