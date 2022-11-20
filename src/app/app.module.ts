@@ -18,13 +18,17 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import {FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FirstComponent,
     FavouritesComponent,
-    MainpageComponent
+    MainpageComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
