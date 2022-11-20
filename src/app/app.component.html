@@ -172,9 +172,10 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<mat-toolbar>
-    <mat-icon style="margin-right: 8px">flight_takeoff</mat-icon>
-  <span style="font-size: x-large;">FlightPlanners</span>
+<mat-toolbar color="primary">
+  <button mat-raised-button color="accent" style="cursor: pointer; border-style: ridge;"><mat-icon style="margin-right: 8px">flight_takeoff</mat-icon>
+    <span style="font-size: x-large;">FlightPlanners</span></button>
+    
   <span class="example-spacer"></span>
   <button mat-stroked-button color="accent" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
     <mat-icon>more_vert</mat-icon>
