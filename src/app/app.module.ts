@@ -14,6 +14,7 @@ import { FavouritesComponent } from './favourites/favourites.component';
 import { MatGridListModule} from '@angular/material/grid-list';
 import { MainpageComponent } from './mainpage/mainpage.component';
 import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { RegisterComponent } from './register/register.component';
     FirstComponent,
     FavouritesComponent
     MainpageComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
