@@ -172,85 +172,21 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<mat-toolbar>
-    <mat-icon style="margin-right: 8px">flight_takeoff</mat-icon>
-  <span style="font-size: x-large;">FlightPlanners</span>
+<mat-toolbar color="primary">
+  <button mat-raised-button color="accent" style="cursor: pointer; border-style: ridge;"><mat-icon style="margin-right: 8px">flight_takeoff</mat-icon>
+    <span style="font-size: x-large;">FlightPlanners</span></button>
+    
   <span class="example-spacer"></span>
   <button mat-stroked-button color="accent" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
     <mat-icon>more_vert</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
     <button mat-menu-item
-    routerLink="/first-component"
+    routerLink="/favourites"
     routerLinkActive="active">
-      <mat-icon>dialpad</mat-icon>
-      <span>first route</span>
+      <span><mat-icon>favorite</mat-icon> My Favourite Flights </span>
     </button>
   </mat-menu>
 </mat-toolbar>
-
-<mat-sidenav-container class="filter-menu-container">
-  <mat-sidenav #filterMenu class="filter-menu-sidenav" position="end">
-    <p>Filter Menu</p>
-    <form formGroup="filters">
-      <p>
-        <label for="airline">Airline</label>
-        <br>
-        <select name="airline" formControlName="airline" id="airline">
-          <option value="none">None</option>
-          <option value="airCanada">Air Canada</option>
-          <option value="westJet">WestJet</option>
-          <option value="sunwing">Sunwing</option>
-        </select>
-      </p>
-      <p>
-        Price Range <br>
-        <label for="minPrice">Minimum </label>
-        <input type="text" name="minPrice" formControlName="minPrice" id="minPrice" placeholder="$0.00">
-        <br>
-        <label for="maxPrice">Maximum </label>
-        <input type="text" name="maxPrice" formControlName="maxPrice" id="maxPrice" placeholder="$0.00">
-      </p>
-      <p>
-        Time Range <br>
-        <label for="beginTime">From </label>
-        <input type="time" name="beginTime" formControlName="beginTime" id="beginTime">
-        <label for="endTime"> to </label>
-        <input type="time" name="endTime" formControlName="endTime" id="endTime">
-      </p>
-      <p>
-        Class <br>
-        <input type="radio" id="economy" name="class" formControlName="class" value="economy">
-        <label for="economy">Economy</label>
-        <input type="radio" id="business" name="class" formControlName="class" value="business">
-        <label for="business">Business</label>
-        <input type="radio" id="firstClass" name="class" fomrControlName="class" value="firstClass">
-        <label for="firstClass">First Class</label>
-      </p>
-      <p>
-        Number of Connecting Flights <br>
-        <input type="radio" id="zero" name="connectingFlights" formControlName="connectingFlights" value="0">
-        <label for="zero">0 (direct flight)</label>
-        <input type="radio" id="one" name="connectingFlights" formControlName="connectingFlights" value="1">
-        <label for="one">1</label>
-        <input type="radio" id="two" name="connectingFlights" formControlName="connectingFlights" value="2">
-        <label for="two">2</label>
-        <input type="radio" id="threeOrMore" name="connectingFlights" formControlName="connectingFlights" value="3">
-        <label for="threeOrMore">3+</label>
-      </p>
-      <p>
-        <label for="roundTrip">Round-trip</label><input type="radio" id="roundTrip" name="roundTrip" formControlName="roundTrip" value="roundTrip">or <label for="oneWay">one-way</label><input type="radio" id="oneWay" name="roundTrip" formControlName="roundTrip" value="oneWay">?
-      </p>  
-    </form>
-    <button>Apply Filters</button>
-    <button>Clear Filters</button>
-    <button (click)="filterMenu.close()">Close Filters</button>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <div class="filter-button">
-      <button (click)="filterMenu.toggle()">Filter</button>
-    </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
 
 <router-outlet></router-outlet>

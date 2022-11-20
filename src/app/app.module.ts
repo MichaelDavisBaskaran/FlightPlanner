@@ -4,18 +4,32 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSliderModule } from '@angular/material/slider';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import {Component} from '@angular/core';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { MatMenuModule} from '@angular/material/menu';
-import { MatSidenavModule } from '@angular/material/sidenav';
 import { FirstComponent } from './first/first.component';
+import { FavouritesComponent } from './favourites/favourites.component';
+import { MatGridListModule} from '@angular/material/grid-list';
+import { MatFormFieldModule} from '@angular/material/form-field';
+import { MainpageComponent } from './mainpage/mainpage.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import {FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FirstComponent
+    FirstComponent,
+    FavouritesComponent,
+    MainpageComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +38,14 @@ import { FirstComponent } from './first/first.component';
     MatToolbarModule,
     MatIconModule,
     MatMenuModule,
-    MatSidenavModule
+    MatGridListModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatSidenavModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
