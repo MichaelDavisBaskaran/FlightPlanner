@@ -20,7 +20,7 @@ import { LoginComponent } from './login/login.component';
   declarations: [
     AppComponent,
     FirstComponent,
-    FavouritesComponent
+    FavouritesComponent,
     MainpageComponent,
     RegisterComponent,
     LoginComponent
