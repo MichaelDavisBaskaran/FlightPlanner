@@ -173,7 +173,8 @@
 <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <mat-toolbar color="primary">
-  <button mat-raised-button color="accent" style="cursor: pointer; border-style: ridge;"><mat-icon style="margin-right: 8px">flight_takeoff</mat-icon>
+  <button mat-raised-button color="accent" style="cursor: pointer; border-style: ridge;"routerLink="/home" routerLinkActive="active">
+    <mat-icon style="margin-right: 8px">flight_takeoff</mat-icon>
     <span style="font-size: x-large;">FlightPlanners</span></button>
     
   <span class="example-spacer"></span>
@@ -190,3 +191,8 @@
 </mat-toolbar>
 
 <router-outlet></router-outlet>
+
+<!-- <mat-toolbar style="height: 8%; margin-top: 0px; margin-bottom: 0px; background-color: white;">
+  <p style="margin-left: 45%; color: black;">FlightPlanners Ltd.</p>
+</mat-toolbar> -->
+

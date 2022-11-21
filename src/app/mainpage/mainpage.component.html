@@ -1,35 +1,83 @@
-<div class="example-container">
+<h2 style="margin-top: 15px; margin-left: 10px;">Please Enter Desired Flight Details.</h2>
+<mat-divider></mat-divider>
+<div style="margin-left: 15px;" class="example-container">
     <form [formGroup]="options">
-        <mat-checkbox [formControl]="hideRequiredControl">Hide required marker</mat-checkbox>
-        <div>
-        <label>Float label: </label>
-        <mat-radio-group [formControl]="floatLabelControl">
-            <mat-radio-button value="auto">Auto</mat-radio-button>
-            <mat-radio-button value="always">Always</mat-radio-button>
-        </mat-radio-group>
-        </div>
-
-        <div class="example-form-fields">
-        <mat-form-field appearance="fill"
-            [hideRequiredMarker]="hideRequiredControl.value"
-            [floatLabel]="getFloatLabelValue()">
+        <!-- <mat-checkbox [formControl]="hideRequiredControl">Hide required marker</mat-checkbox> -->
+        <div class="example-form-fields" style="width: 99%;">
+        <!-- <mat-form-field appearance="fill"
+             >
             <input matInput placeholder="Simple placeholder" required>
         </mat-form-field>
 
         <mat-form-field appearance="fill" [floatLabel]="getFloatLabelValue()">
             <mat-label>Both a label and a placeholder</mat-label>
             <input matInput placeholder="Simple placeholder">
+        </mat-form-field> -->
+
+        <mat-form-field appearance="fill"
+             >
+            <mat-label><mat-icon>flight_takeoff</mat-icon><i>Departure Location</i></mat-label>
+            <mat-select required>
+            <mat-option *ngFor="let potentialDepartureLocation of potentialDepartureLocations" [value]="potentialDepartureLocation" (onSelectionChange)='changedepart($event.source)'>
+                {{potentialDepartureLocation}}
+            </mat-option>
+            </mat-select>            
         </mat-form-field>
 
         <mat-form-field appearance="fill"
-            [hideRequiredMarker]="hideRequiredControl.value"
-            [floatLabel]="getFloatLabelValue()">
+             >
             <mat-select required>
-            <mat-option>-- None --</mat-option>
-            <mat-option value="option">Option</mat-option>
+            <mat-option *ngFor="let potentialArrivalLocation of potentialArrivalLocations" [value]="potentialArrivalLocation" (onSelectionChange)='changearrival($event.source)'>
+                {{potentialArrivalLocation}}
+            </mat-option>
             </mat-select>
-            <mat-label><mat-icon>favorite</mat-icon> <b> Fancy</b> <i> label</i></mat-label>
+            <mat-label><mat-icon>flight_land</mat-icon><i>Arrival Location</i></mat-label>
+            <mat-hint style="color: red;" *ngIf="arrivalIsDeparture">Arrival and Departure Locations must Differ</mat-hint>
         </mat-form-field>
         </div>
+
+        <div class="example-form-fields" style="width: 99%;">    
+            <mat-form-field appearance="fill">
+                <mat-select required>
+                    <mat-option *ngFor="let seatSelected of seatsSelected" [value]="seatSelected" (onSelectionChange)='changeseats($event.source)'>
+                        {{seatSelected}}
+                    </mat-option>
+                </mat-select>
+                <mat-label><mat-icon>flight_class</mat-icon><i>Number of Seats Required</i></mat-label>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Range of Departure Dates</mat-label>
+                <mat-date-range-input [min]="minDate" [formGroup]="range" [rangePicker]="picker">
+                  <input matStartDate #dateRangeStart placeholder="Start date">
+                  <input matEndDate #dateRangeEnd placeholder="End date" (dateChange)="dateRangeChange(dateRangeStart, dateRangeEnd)">
+                </mat-date-range-input>
+                <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+            </div>
+            <div>
+                <label>Flight Type: </label>
+                <mat-radio-group (change)="getFloatLabelValue($event)" [formControl]="floatLabelControl">
+                    <mat-radio-button value="One Way">One Way</mat-radio-button>
+                    <mat-radio-button value="Round Trip">Round Trip</mat-radio-button>
+                </mat-radio-group>
+            </div>
+        <mat-divider style="margin-top: 2%;margin-bottom: 2%;"></mat-divider>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                            (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+            <mat-panel-title>
+                Additional Filters
+            </mat-panel-title>
+            <mat-panel-description>
+                Optionally Choose More Particular Flight Details {{panelOpenState ? 'open' : 'closed'}}
+            </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>I'm visible because I am open</p>
+        </mat-expansion-panel>
+        <mat-progress-bar *ngIf="progBarCondition" mode="query"></mat-progress-bar>
+        <button [disabled]="notGood[0] || notGood[1]|| notGood[2]|| notGood[3]|| notGood[4]" style="margin-left: 85%; margin-top: 3%;cursor: pointer; background-color: transparent;" class="example-button-label" mat-button color="warn" (click)="searchFlights()">Search Flights</button>
     </form>
 </div>

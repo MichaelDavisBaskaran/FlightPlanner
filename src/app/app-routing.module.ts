@@ -6,6 +6,7 @@ import { MainpageComponent } from './mainpage/mainpage.component';
 
 const routes: Routes = [
   { path: 'favourites', component: FavouritesComponent },
+  { path: 'home', component: MainpageComponent },
 ];
 
 @NgModule({
