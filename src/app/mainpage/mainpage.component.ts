@@ -45,6 +45,9 @@ export class MainpageComponent implements OnInit {
   connecting_flights = [0,1,2,3];
   round_options = ['One Way','Round Trip']
   dummy_flights: any[] = [];
+  show_table=false;
+  filtered_flights: any[] = []
+  displayedColumns: string[] = ['Origin', 'Destination', '# Seats', 'Date', 'Airline', 'Duration', 'Class', 'Trip Style', '# Connections', 'Price'];
 
   constructor(private _formBuilder: FormBuilder) {
     this.minDate = new Date();
@@ -60,37 +63,31 @@ export class MainpageComponent implements OnInit {
         for (let c = 0; c < this.seatsSelected.length; c++) {
           for (let d = 0; d < this.dates.length; d++) {
             for (let e = 0; e < this.airlines.length; e++) {
-              for (let f = 0; f < this.time.length; f++) {
                 for (let g = 0; g < this.flight_class.length; g++) {
                   for (let h = 0; h < this.round_options.length; h++) {
-                    for (let i = 0; i < this.connecting_flights.length; i++) {
                       this.dummy_flights.push({
                     origin:this.potentialDepartureLocations[a],
                     destination:this.potentialArrivalLocations[b],
                     seatsSelected:this.seatsSelected[c],
                     dates:this.dates[d],
                     airline:this.airlines[e],
-                    time:this.time[f],
+                    time:'1:00',
                     class:this.flight_class[g],
                     round_options:this.round_options[h],
-                    connectingFlights:this.connecting_flights[i],
+                    connectingFlights:0,
                     price:100
                   })
-                    }
                   }
                 }
-              }
             }
           }
         }
       }
     }
+    // this.filtered_flights.push(this.dummy_flights[0])
     console.log(this.dummy_flights)
   }
-  async searchFlights(){
-    this.progBarCondition = true;
-    await this.delay(1000);
-  }
+  
   getFloatLabelValue(event:any): any {
     console.log(event.value);
     this.flightType = event.value;
@@ -141,7 +138,35 @@ export class MainpageComponent implements OnInit {
   dateRangeChange(dateRangeStart: any,dateRangeEnd:any) {
     this.tsdateRangeStart = dateRangeStart;
     this.tsdateRangeEnd = dateRangeEnd;
+    console.log(dateRangeEnd);
+    console.log(dateRangeStart);
     this.notGood[3] = false;
   }
 
+  async searchFlights(){
+    this.progBarCondition = true;
+    await this.delay(3000);
+    console.log(this.dummy_flights[5].dates <= this.tsdateRangeEnd);
+    console.log(this.dummy_flights[5].dates <= this.tsdateRangeStart);
+    console.log(this.tsdateRangeStart);
+    console.log(this.dummy_flights[5].dates);
+    console.log(this.tsdateRangeEnd);
+    for (let h = 0; h < this.dummy_flights.length; h++) {
+      if (
+        this.dummy_flights[h].origin == this.potentialDepartureLocation
+        && this.dummy_flights[h].destination == this.potentialArrivalLocation
+        && this.dummy_flights[h].seatsSelected == this.seatSelected
+        // && (this.dummy_flights[h].dates <= this.tsdateRangeEnd && this.dummy_flights[h].dates >= this.tsdateRangeStart)
+        ){
+          this.filtered_flights.push(this.dummy_flights[h]);
+        }
+    }
+    this.show_table = true;
+    this.progBarCondition = false;
+    if(this.filtered_flights.length == 0){
+       
+    }
+  }
+
 }
+// !notGood[0] && !notGood[1] && !notGood[2] && !notGood[3] && !notGood[4]
