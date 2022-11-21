@@ -216,6 +216,7 @@ export class MainpageComponent implements OnInit {
   async searchFlights(){
     this.progBarCondition = true;
     await this.delay(3000);
+    this.filtered_flights = [];
     console.log(this.dummy_flights[5].dates <= this.tsdateRangeEnd);
     console.log(this.dummy_flights[5].dates <= this.tsdateRangeStart);
     console.log(this.tsdateRangeStart);
