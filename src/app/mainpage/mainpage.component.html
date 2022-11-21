@@ -191,6 +191,7 @@
           </ng-container>
         
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="print()" style="cursor: pointer;"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" routerLink="/seat-selection"
+        routerLinkActive="active" style="cursor: pointer;"></tr>
       </table>
 </div>
