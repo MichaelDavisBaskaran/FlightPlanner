@@ -7,6 +7,8 @@ import { MainpageComponent } from './mainpage/mainpage.component';
 
 const routes: Routes = [
   { path: 'favourites', component: FavouritesComponent },
+  { path: '', component: MainpageComponent },
+  { path: 'favourites', component: FavouritesComponent },
   { path: 'seat-selection', component: SeatSelectionComponent},
 ];
 

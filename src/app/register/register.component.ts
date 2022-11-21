@@ -29,14 +29,8 @@ export class RegisterComponent {
     // private authService: AuthService
   ) { }
 
-  // register() {
-  //   if (!this.registerForm.valid) {
-  //     return;
-  //   }
-  //   this.authService.register(this.registerForm.value).pipe(
-  //     // If registration was successfull, then navigate to login route
-  //     tap(() => this.router.navigate(['../login']))
-  //   ).subscribe();
-  // }
+  register() {
+    return;
+  }
 
 }
