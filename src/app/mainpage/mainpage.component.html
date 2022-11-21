@@ -47,7 +47,7 @@
             </mat-form-field>
 
             <mat-form-field appearance="fill">
-                <mat-label>Range of Departure Dates</mat-label>
+                <mat-label>Range of Departure Dates *</mat-label>
                 <mat-date-range-input [min]="minDate" [formGroup]="range" [rangePicker]="picker">
                   <input matStartDate #dateRangeStart placeholder="Start date">
                   <input matEndDate #dateRangeEnd placeholder="End date" (dateChange)="dateRangeChange(dateRangeStart, dateRangeEnd)">
@@ -58,7 +58,7 @@
             </mat-form-field>
             </div>
             <div>
-                <label>Flight Type: </label>
+                <label>Flight Type *: </label>
                 <mat-radio-group (change)="getFloatLabelValue($event)" [formControl]="floatLabelControl">
                     <mat-radio-button value="One Way">One Way</mat-radio-button>
                     <mat-radio-button value="Round Trip">Round Trip</mat-radio-button>
@@ -72,7 +72,7 @@
                 Additional Filters
             </mat-panel-title>
             <mat-panel-description>
-                Optionally Choose More Particular Flight Details {{panelOpenState ? 'open' : 'closed'}}
+                Optionally Choose More Particular Flight Details
             </mat-panel-description>
             </mat-expansion-panel-header>
                 <form [formGroup]="filters">
