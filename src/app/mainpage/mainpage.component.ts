@@ -221,6 +221,7 @@ export class MainpageComponent implements OnInit {
     // this.filtered_flights = []
     this.progBarCondition = true;
     await this.delay(3000);
+    this.filtered_flights = [];
     console.log(this.dummy_flights[5].dates <= this.tsdateRangeEnd);
     console.log(this.dummy_flights[5].dates <= this.tsdateRangeStart);
     console.log(this.tsdateRangeStart);
@@ -231,6 +232,7 @@ export class MainpageComponent implements OnInit {
         this.dummy_flights[h].origin == this.potentialDepartureLocation
         && this.dummy_flights[h].destination == this.potentialArrivalLocation
         && this.dummy_flights[h].seatsSelected == this.seatSelected
+        && this.dummy_flights[h].round_options == this.floatLabelControl.value
         // && (this.dummy_flights[h].dates <= this.tsdateRangeEnd && this.dummy_flights[h].dates >= this.tsdateRangeStart)
         && this.hasFilters(this.dummy_flights[h])
         ){
