@@ -227,6 +227,7 @@ export class MainpageComponent implements OnInit {
         this.dummy_flights[h].origin == this.potentialDepartureLocation
         && this.dummy_flights[h].destination == this.potentialArrivalLocation
         && this.dummy_flights[h].seatsSelected == this.seatSelected
+        && this.dummy_flights[h].round_options == this.floatLabelControl.value
         // && (this.dummy_flights[h].dates <= this.tsdateRangeEnd && this.dummy_flights[h].dates >= this.tsdateRangeStart)
         && this.hasFilters(this.dummy_flights[h])
         ){
