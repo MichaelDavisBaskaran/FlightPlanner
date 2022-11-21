@@ -32,7 +32,12 @@ export class RegisterComponent {
   ) { }
 
   register() {
-    return;
+    if (!this.registerForm.valid) {
+      return;
+    }
+    
+      this.router.navigate(['../'])
+    
   }
 
 }
