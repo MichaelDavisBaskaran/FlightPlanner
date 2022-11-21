@@ -45,6 +45,16 @@ export class MainpageComponent implements OnInit {
   connecting_flights = [0,1,2,3];
   round_options = ['One Way','Round Trip']
   dummy_flights: any[] = [];
+  displayFlights: any[] = [];
+  filters = new FormGroup({
+    airline: new FormControl(),
+    minPrice: new FormControl(),
+    maxPrice: new FormControl(),
+    beginTime: new FormControl(),
+    endTime: new FormControl(),
+    class: new FormControl(),
+    connectingFlights: new FormControl()
+  });
 
   constructor(private _formBuilder: FormBuilder) {
     this.minDate = new Date();
@@ -90,7 +100,67 @@ export class MainpageComponent implements OnInit {
   async searchFlights(){
     this.progBarCondition = true;
     await this.delay(1000);
+    for (var flight in this.dummy_flights) {
+      if (this.hasFilters(flight)) {
+        this.displayFlights.push(flight);
+      }
+    }
   }
+
+  hasFilters(flight: any): boolean {
+    
+    let airlineVal = this.filters.controls.airline.value;
+    let minPriceVal = this.filters.controls.minPrice.value;
+    let maxPriceVal = this.filters.controls.maxPrice.value;
+    let beginTimeVal = this.filters.controls.beginTime.value;
+    let endTimeVal = this.filters.controls.endTime.value;
+    let classVal = this.filters.controls.class.value;
+    let connectingFlightsVal = this.filters.controls.connectingFlights.value;
+
+    if (airlineVal && airlineVal != flight.airline) {
+      return false;
+    }
+    if (minPriceVal && flight.price > minPriceVal) {
+      return false;
+    }
+    if (maxPriceVal && flight.price > maxPriceVal) {
+      return false;
+    }
+    if (beginTimeVal) {
+      let beginTimeHr = +beginTimeVal.split(":")[0];
+      let beginTimeMin = +beginTimeVal.split(":")[1];
+      let flightHr = +flight.time.split(":")[0];
+      let flightMin = +flight.time.split(":")[1];
+      if (flightHr < beginTimeHr) {
+        return false;
+      }
+      else if (flightMin < beginTimeMin) {
+        return false;
+      }
+    }
+    if (endTimeVal) {
+      let endTimeHr = +endTimeVal.split(":")[0];
+      let endTimeMin = +endTimeVal.split(":")[1];
+      let flightHr = +flight.time.split(":")[0];
+      let flightMin = +flight.time.split(":")[1];
+      if (flightHr > endTimeHr) {
+        return false;
+      }
+      else if (flightMin > endTimeMin) {
+        return false;
+      }
+    }
+    if (classVal && classVal != flight.class) {
+      return false;
+    }
+    if (connectingFlightsVal && connectingFlightsVal != flight.connectingFlights) {
+      return false;
+    }
+
+    return true;
+
+  }
+
   getFloatLabelValue(event:any): any {
     console.log(event.value);
     this.flightType = event.value;
