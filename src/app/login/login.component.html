@@ -1,5 +1,5 @@
 <div>
-    <a [routerLink]="['../register']">Go to Register</a>
+    
     <mat-card>
       <mat-card-title>Login</mat-card-title>
       <mat-card-content>
@@ -9,15 +9,17 @@
             <input type="email" matInput placeholder="Email" formControlName="email">
             <!-- Here we can display error messages/hints for the user, if one of the Validators adds an error to the email 
              with the .touched check we only display the hints if the input was touched by the users -->
-            <mat-error *ngIf="this.loginForm.get('email')?.touched && this.loginForm.get('email')?.hasError('required')">
+            <mat-error style="color: red;"
+             *ngIf="this.loginForm.get('email')?.touched && this.loginForm.get('email')?.hasError('required')">
               Email is required</mat-error>
-            <mat-error *ngIf="this.loginForm.get('email')?.touched && this.loginForm.get('email')?.hasError('email')">
+            <mat-error style="color: red;"
+             *ngIf="this.loginForm.get('email')?.touched && this.loginForm.get('email')?.hasError('email')">
               Email must be a valid Email</mat-error>
           </mat-form-field>
   
           <mat-form-field>
             <input type="password" matInput placeholder="Password" formControlName="password">
-            <mat-error
+            <mat-error style="color: red;"
               *ngIf="this.loginForm.get('password')?.touched && this.loginForm.get('password')?.hasError('required')">
               Password is required</mat-error>
           </mat-form-field>
@@ -30,4 +32,7 @@
         </form>
       </mat-card-content>
     </mat-card>
+    <div>
+    <a [routerLink]="['../register']">Don't have an account? Click here and register now</a>
+    </div>
   </div>

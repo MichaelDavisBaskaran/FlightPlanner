@@ -178,14 +178,25 @@
     <span style="font-size: x-large;">FlightPlanners</span></button>
     
   <span class="example-spacer"></span>
-  <button mat-stroked-button color="accent" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+  <button (click)="menuClicked()" mat-stroked-button color="accent" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
     <mat-icon>more_vert</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item
+    <button  mat-menu-item 
     routerLink="/favourites"
+    *ngIf="this.loggedin"
     routerLinkActive="active">
       <span><mat-icon>favorite</mat-icon> My Favourite Flights </span>
+    </button>
+    <button mat-menu-item 
+    routerLink="/login"
+    routerLinkActive="active">
+      <span><mat-icon>account_circle</mat-icon> Login </span>
+    </button>
+    <button mat-menu-item
+    routerLink="/register"
+    routerLinkActive="active">
+      <span><mat-icon>account_circle</mat-icon> Register </span>
     </button>
   </mat-menu>
 </mat-toolbar>
