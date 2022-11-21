@@ -75,7 +75,53 @@
                 Optionally Choose More Particular Flight Details {{panelOpenState ? 'open' : 'closed'}}
             </mat-panel-description>
             </mat-expansion-panel-header>
-            <p>I'm visible because I am open</p>
+                <form [formGroup]="filters">
+                    <p>
+                    <label for="airline">Airline</label>
+                    <br>
+                    <select name="airline" formControlName="airline" id="airline">
+                        <option value="airCanada">Air Canada</option>
+                        <option value="westJet">WestJet</option>
+                        <option value="sunwing">Sunwing</option>
+                    </select>
+                    </p>
+                    <p>
+                    Price Range <br>
+                    <label for="minPrice">Minimum </label>
+                    <input type="text" name="minPrice" formControlName="minPrice" id="minPrice" placeholder="$0.00">
+                    <br>
+                    <label for="maxPrice">Maximum </label>
+                    <input type="text" name="maxPrice" formControlName="maxPrice" id="maxPrice" placeholder="$0.00">
+                    </p>
+                    <p>
+                    Time Range <br>
+                    <label for="beginTime">From </label>
+                    <input type="time" name="beginTime" formControlName="beginTime" id="beginTime">
+                    <label for="endTime"> to </label>
+                    <input type="time" name="endTime" formControlName="endTime" id="endTime">
+                    </p>
+                    <p>
+                    Class <br>
+                    <input type="radio" id="economy" name="class" formControlName="class" value="economy">
+                    <label for="economy">Economy</label>
+                    <input type="radio" id="business" name="class" formControlName="class" value="business">
+                    <label for="business">Business</label>
+                    <input type="radio" id="firstClass" name="class" formControlName="class" value="firstClass">
+                    <label for="firstClass">First Class</label>
+                    </p>
+                    <p>
+                    Number of Connecting Flights <br>
+                    <input type="radio" id="zero" name="connectingFlights" formControlName="connectingFlights" value="0">
+                    <label for="zero">0 (direct flight)</label>
+                    <input type="radio" id="one" name="connectingFlights" formControlName="connectingFlights" value="1">
+                    <label for="one">1</label>
+                    <input type="radio" id="two" name="connectingFlights" formControlName="connectingFlights" value="2">
+                    <label for="two">2</label>
+                    <input type="radio" id="threeOrMore" name="connectingFlights" formControlName="connectingFlights" value="3">
+                    <label for="threeOrMore">3+</label>
+                    </p>  
+                </form>
+                <button (click)="clearFilters()">Clear Filters</button>
         </mat-expansion-panel>
         <mat-progress-bar *ngIf="progBarCondition" mode="query"></mat-progress-bar>
         <button [disabled]="notGood[0] || notGood[1]|| notGood[2]|| notGood[3]|| notGood[4]" style="margin-left: 85%; margin-top: 3%;cursor: pointer; background-color: transparent;" class="example-button-label" mat-button color="warn" (click)="searchFlights()">Search Flights</button>
