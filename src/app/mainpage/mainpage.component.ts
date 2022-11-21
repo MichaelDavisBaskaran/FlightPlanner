@@ -100,7 +100,7 @@ export class MainpageComponent implements OnInit {
   async searchFlights(){
     this.progBarCondition = true;
     await this.delay(1000);
-    for (var flight in this.dummy_flights) {
+    for (let flight in this.dummy_flights) {
       if (this.hasFilters(flight)) {
         this.displayFlights.push(flight);
       }
@@ -159,6 +159,12 @@ export class MainpageComponent implements OnInit {
 
     return true;
 
+  }
+
+  clearFilters(): void {
+    for (let control in this.filters.controls) {
+      this.filters.get(control)?.setValue(null);
+    }
   }
 
   getFloatLabelValue(event:any): any {

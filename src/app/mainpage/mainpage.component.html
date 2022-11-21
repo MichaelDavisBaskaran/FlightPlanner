@@ -121,6 +121,7 @@
                     <label for="threeOrMore">3+</label>
                     </p>  
                 </form>
+                <button (click)="clearFilters()">Clear Filters</button>
         </mat-expansion-panel>
         <mat-progress-bar *ngIf="progBarCondition" mode="query"></mat-progress-bar>
         <button [disabled]="notGood[0] || notGood[1]|| notGood[2]|| notGood[3]|| notGood[4]" style="margin-left: 85%; margin-top: 3%;cursor: pointer; background-color: transparent;" class="example-button-label" mat-button color="warn" (click)="searchFlights()">Search Flights</button>
