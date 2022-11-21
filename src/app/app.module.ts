@@ -31,6 +31,7 @@ export const LOCALSTORAGE_TOKEN_KEY = 'angular_material_login_and_register_examp
 export function tokenGetter() {
   return localStorage.getItem(LOCALSTORAGE_TOKEN_KEY);
 }
+import { SeatSelectionComponent } from './seat-selection/seat-selection.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ export function tokenGetter() {
     FavouritesComponent,
     MainpageComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    SeatSelectionComponent,
   ],
   imports: [
     BrowserModule,
