@@ -27,7 +27,7 @@ export class MainpageComponent implements OnInit {
   potentialDepartureLocations : string[] = ['Toronto', 'London', 'Los Angeles', 'Sydney', 'New York', 'Beijing', 'Karachi'];
   potentialArrivalLocations : string[] = ['Toronto', 'London', 'Los Angeles', 'Sydney', 'New York', 'Beijing', 'Karachi'];
   seatsSelected : string[] = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
-  potentialDepartureLocation : string = 'Toronto';
+  potentialDepartureLocation : string = '';
   potentialArrivalLocation : string = '';
   seatSelected : string = '';
   arrivalIsDeparture = false;
@@ -35,7 +35,16 @@ export class MainpageComponent implements OnInit {
   tsdateRangeStart: any = new Date();
   tsdateRangeEnd:any = new Date();
   flightType = '';
-
+  today = new Date();
+  next_month = new Date(2022,12,20);
+  next_next_month = new Date(2023,13,20);
+  dates = [this.today,this.next_month,this.next_next_month]
+  airlines = ['Air Canada','Sunwing','WestJet'];
+  time = ['1:00','2:30','3:00','5:30','9:00','11:30','13:00','14:30'];
+  flight_class = ['business', 'economy', 'first-class'];
+  connecting_flights = [0,1,2,3];
+  round_options = ['One Way','Round Trip']
+  dummy_flights: any[] = [];
 
   constructor(private _formBuilder: FormBuilder) {
     this.minDate = new Date();
@@ -46,6 +55,37 @@ export class MainpageComponent implements OnInit {
     return new Promise( resolve => setTimeout(resolve, ms) );
 }
   ngOnInit(): void {
+    for (let a = 0; a < this.potentialDepartureLocations.length; a++) {
+      for (let b = 0; b < this.potentialArrivalLocations.length; b++) {
+        for (let c = 0; c < this.seatsSelected.length; c++) {
+          for (let d = 0; d < this.dates.length; d++) {
+            for (let e = 0; e < this.airlines.length; e++) {
+              for (let f = 0; f < this.time.length; f++) {
+                for (let g = 0; g < this.flight_class.length; g++) {
+                  for (let h = 0; h < this.round_options.length; h++) {
+                    for (let i = 0; i < this.connecting_flights.length; i++) {
+                      this.dummy_flights.push({
+                    origin:this.potentialDepartureLocations[a],
+                    destination:this.potentialArrivalLocations[b],
+                    seatsSelected:this.seatsSelected[c],
+                    dates:this.dates[d],
+                    airline:this.airlines[e],
+                    time:this.time[f],
+                    class:this.flight_class[g],
+                    round_options:this.round_options[h],
+                    connectingFlights:this.connecting_flights[i],
+                    price:100
+                  })
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    console.log(this.dummy_flights)
   }
   async searchFlights(){
     this.progBarCondition = true;
