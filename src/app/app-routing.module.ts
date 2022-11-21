@@ -9,6 +9,8 @@ import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: 'favourites', component: FavouritesComponent },
+  { path: '', component: MainpageComponent },
+  { path: 'favourites', component: FavouritesComponent },
   {
     path: 'login',
     component: LoginComponent

@@ -32,6 +32,13 @@ export function tokenGetter() {
   return localStorage.getItem(LOCALSTORAGE_TOKEN_KEY);
 }
 import { SeatSelectionComponent } from './seat-selection/seat-selection.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -59,6 +66,13 @@ import { SeatSelectionComponent } from './seat-selection/seat-selection.componen
     MatSelectModule,
     MatRadioModule,
     ReactiveFormsModule,
+    MatCardModule,
+    MatDatepickerModule,
+    MatDividerModule,
+    MatNativeDateModule,
+    MatExpansionModule,
+    MatProgressBarModule,
+    MatTableModule,
     FormsModule,
     MatCardModule,
     JwtModule.forRoot({

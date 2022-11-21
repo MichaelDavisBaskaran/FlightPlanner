@@ -1,0 +1,35 @@
+.example-container mat-form-field + mat-form-field {
+    margin-left: 8px;
+  }
+  
+  .example-container mat-form-field {
+    width: 50%;
+  }
+  
+  .example-container form {
+    margin-bottom: 1%;
+  }
+  
+  .example-container form > * {
+    margin: 12px 0;
+  }
+  
+  .example-container .mat-radio-button {
+    margin: 0 12px;
+  }
+  
+  .example-form-fields {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .mat-mdc-form-field + .mat-mdc-form-field {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
+  .example-button-label {
+    font-size: 14px;
+    margin-left: 90%;
+    min-width: 120px;
+  }
