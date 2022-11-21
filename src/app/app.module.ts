@@ -32,7 +32,7 @@ export function tokenGetter() {
   return localStorage.getItem(LOCALSTORAGE_TOKEN_KEY);
 }
 import { SeatSelectionComponent } from './seat-selection/seat-selection.component';
-import { MatCardModule } from '@angular/material/card';
+
 import { MatDividerModule } from '@angular/material/divider';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
