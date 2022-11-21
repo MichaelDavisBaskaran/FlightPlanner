@@ -17,10 +17,20 @@ import { MainpageComponent } from './mainpage/mainpage.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
-import {FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import {MatCardModule} from '@angular/material/card';
+import { JwtModule } from '@auth0/angular-jwt';
+import { HttpClientModule } from '@angular/common/http';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
+export const LOCALSTORAGE_TOKEN_KEY = 'angular_material_login_and_register_example';
+
+
+export function tokenGetter() {
+  return localStorage.getItem(LOCALSTORAGE_TOKEN_KEY);
+}
 
 @NgModule({
   declarations: [
@@ -35,6 +45,7 @@ import {MatCardModule} from '@angular/material/card';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatToolbarModule,
     MatIconModule,
     MatMenuModule,
@@ -42,10 +53,18 @@ import {MatCardModule} from '@angular/material/card';
     MatFormFieldModule,
     MatInputModule,
     MatCheckboxModule,
+    MatSnackBarModule,
     MatSelectModule,
     MatRadioModule,
     ReactiveFormsModule,
-    MatCardModule
+    FormsModule,
+    MatCardModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ['localhost:3000', 'localhost:8080']
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
