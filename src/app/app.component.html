@@ -190,11 +190,20 @@
     </button>
     <button mat-menu-item 
     routerLink="/login"
+    *ngIf="!this.loggedin"
     routerLinkActive="active">
       <span><mat-icon>account_circle</mat-icon> Login </span>
     </button>
+    <button mat-menu-item 
+    routerLink="/login"
+    *ngIf="this.loggedin"
+    routerLinkActive="active">
+      <span><mat-icon>account_circle</mat-icon> Logout </span>
+    </button>
+
     <button mat-menu-item
     routerLink="/register"
+    *ngIf="!this.loggedin"
     routerLinkActive="active">
       <span><mat-icon>account_circle</mat-icon> Register </span>
     </button>
