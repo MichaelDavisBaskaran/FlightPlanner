@@ -20,6 +20,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import {FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+import { SeatSelectionComponent } from './seat-selection/seat-selection.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { LoginComponent } from './login/login.component';
     FavouritesComponent,
     MainpageComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    SeatSelectionComponent,
   ],
   imports: [
     BrowserModule,
