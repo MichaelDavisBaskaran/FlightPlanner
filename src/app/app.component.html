@@ -194,7 +194,8 @@
     routerLinkActive="active">
       <span><mat-icon>account_circle</mat-icon> Login </span>
     </button>
-    <button mat-menu-item 
+
+    <button mat-menu-item  (click)="logout()"
     routerLink="/login"
     *ngIf="this.loggedin"
     routerLinkActive="active">
