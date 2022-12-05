@@ -21,12 +21,12 @@ const routes: Routes = [
     path: 'register',
     component: RegisterComponent
   },
+  { path: 'seat-selection', component: SeatSelectionComponent},
   {
     path: '**',
     redirectTo: 'login',
     pathMatch: 'full'
-  },
-  { path: 'seat-selection', component: SeatSelectionComponent}
+  }
 ];
 
 @NgModule({
