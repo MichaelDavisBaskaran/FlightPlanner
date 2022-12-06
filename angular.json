@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "my-third-proj": {
+    "angular-scully": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/my-third-proj",
+            "outputPath": "dist/angular-scully",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -70,10 +70,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "my-third-proj:build:production"
+              "browserTarget": "angular-scully:build:production"
             },
             "development": {
-              "browserTarget": "my-third-proj:build:development"
+              "browserTarget": "angular-scully:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -81,7 +81,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "my-third-proj:build"
+            "browserTarget": "angular-scully:build"
           }
         },
         "test": {
@@ -106,6 +106,7 @@
       }
     }
   },
+  "defaultProject": "angular-scully",
   "cli": {
     "analytics": false
   }

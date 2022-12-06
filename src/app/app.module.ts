@@ -39,6 +39,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTableModule } from '@angular/material/table';
+import { ScullyLibModule } from '@scullyio/ng-lib';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { MatTableModule } from '@angular/material/table';
         tokenGetter: tokenGetter,
         allowedDomains: ['localhost:3000', 'localhost:8080']
       }
-    })
+    }),
+    ScullyLibModule
   ],
   providers: [],
   bootstrap: [AppComponent]
